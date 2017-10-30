@@ -17,7 +17,7 @@ import java.util.List;
 import bone.com.mycustombanner.RecyclerViewBanner.RecyclerViewPagerAdatper;
 import bone.com.mycustombanner.RecyclerViewBanner.RecyclerVieBannerView;
 import bone.com.mycustombanner.utils.DensityUtil;
-import bone.com.mycustombanner.ViewPagerBanner.NavigatorLocationConstant;
+import bone.com.mycustombanner.navigatorview.NavigatorLocationConstant;
 
 public class RecyclerViewBannerActivity extends AppCompatActivity {
 

@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import bone.com.mycustombanner.ViewPagerBanner.BannerView;
-import bone.com.mycustombanner.ViewPagerBanner.NavigatorLocationConstant;
+import bone.com.mycustombanner.navigatorview.NavigatorLocationConstant;
 import bone.com.mycustombanner.transformer.ForegroundToBackgroundTransformer;
 import bone.com.mycustombanner.utils.DensityUtil;
 

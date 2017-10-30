@@ -22,7 +22,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import bone.com.mycustombanner.R;
-import bone.com.mycustombanner.ViewPagerBanner.NavigatorLocationConstant;
+import bone.com.mycustombanner.navigatorview.NavigatorLocationConstant;
 import bone.com.mycustombanner.itemtype.BaseItemType;
 import bone.com.mycustombanner.navigatorview.NavigatorView;
 import bone.com.mycustombanner.utils.LogUtils;
@@ -72,7 +72,6 @@ public class RecyclerVieBannerView extends ConstraintLayout {
      * 用于外部回调 页面切换的viewpager的回调
      */
     private ViewPager.OnPageChangeListener pageChangeListener;
-
 
     /**
      * 当前页

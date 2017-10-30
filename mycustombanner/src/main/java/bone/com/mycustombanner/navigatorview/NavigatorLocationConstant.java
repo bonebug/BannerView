@@ -1,4 +1,4 @@
-package bone.com.mycustombanner.ViewPagerBanner;
+package bone.com.mycustombanner.navigatorview;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

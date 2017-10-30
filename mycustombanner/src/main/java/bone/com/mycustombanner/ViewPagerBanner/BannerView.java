@@ -22,6 +22,7 @@ import java.util.TimerTask;
 
 import bone.com.mycustombanner.R;
 import bone.com.mycustombanner.itemtype.BaseItemType;
+import bone.com.mycustombanner.navigatorview.NavigatorLocationConstant;
 import bone.com.mycustombanner.navigatorview.NavigatorView;
 
 /**
@@ -155,17 +156,28 @@ public class BannerView extends ConstraintLayout {
         bannerSet.applyTo(this);
 
         initViewPager(context);
-        if (isNeedNavigator) {
-            adapter.registerDataSetObserver(pagerDataSetOberver);
-            navigatorLay = new NavigatorView(getContext());
-            navigatorLay.setId(R.id.selfbanner_navigatorids);
-            addView(navigatorLay);
+        adapter.registerDataSetObserver(pagerDataSetOberver);
+        navigatorLay = new NavigatorView(getContext());
+        navigatorLay.setId(R.id.selfbanner_navigatorids);
+        addView(navigatorLay);
 
-            bannerSet.constrainWidth(navigatorLay.getId(), ConstraintSet.WRAP_CONTENT);
-            bannerSet.constrainHeight(navigatorLay.getId(), ConstraintSet.WRAP_CONTENT);
+        bannerSet.constrainWidth(navigatorLay.getId(), ConstraintSet.WRAP_CONTENT);
+        bannerSet.constrainHeight(navigatorLay.getId(), ConstraintSet.WRAP_CONTENT);
 
 //            setNavigatorParams(0, DensityUtil.dip2px(context, 10), 0, 0, NavigatorLocationConstant.TOP_CENTER);
 
+        initNavigator();
+
+    }
+
+    /**
+     * 初始化导航点
+     */
+    private void initNavigator() {
+        if (isNeedNavigator) {
+            navigatorLay.setVisibility(VISIBLE);
+        } else {
+            navigatorLay.setVisibility(GONE);
         }
 
     }
@@ -291,7 +303,8 @@ public class BannerView extends ConstraintLayout {
             timer = null;
         }
     }
-    public  void setEndLoop(boolean isEndLoop){
+
+    public void setEndLoop(boolean isEndLoop) {
         adapter.setEndLoop(isEndLoop);
     }
 
@@ -308,6 +321,11 @@ public class BannerView extends ConstraintLayout {
             }
         }
         return super.dispatchTouchEvent(ev);
+    }
+
+    public void setNeedNavigator(boolean needNavigator) {
+        isNeedNavigator = needNavigator;
+        initNavigator();
     }
 
     /**
