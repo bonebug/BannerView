@@ -74,6 +74,14 @@ public class BannerView extends ConstraintLayout {
      * 用于外部回调 页面切换的viewpager的回调
      */
     private ViewPager.OnPageChangeListener pageChangeListener;
+    /**
+     * 导航点的位置间距
+     */
+    private int leftMargin, topMargin, rightMargin, bottomMargin;
+    /**
+     * 导航点的位置
+     */
+    private int location;
 
     private Handler autoHandler = new Handler(Looper.getMainLooper()) {
         @Override
@@ -159,7 +167,6 @@ public class BannerView extends ConstraintLayout {
         adapter.registerDataSetObserver(pagerDataSetOberver);
         navigatorLay = new NavigatorView(getContext());
         navigatorLay.setId(R.id.selfbanner_navigatorids);
-        addView(navigatorLay);
 
         bannerSet.constrainWidth(navigatorLay.getId(), ConstraintSet.WRAP_CONTENT);
         bannerSet.constrainHeight(navigatorLay.getId(), ConstraintSet.WRAP_CONTENT);
@@ -175,9 +182,9 @@ public class BannerView extends ConstraintLayout {
      */
     private void initNavigator() {
         if (isNeedNavigator) {
-            navigatorLay.setVisibility(VISIBLE);
+            addView(navigatorLay);
         } else {
-            navigatorLay.setVisibility(GONE);
+            removeView(navigatorLay);
         }
 
     }
@@ -324,14 +331,32 @@ public class BannerView extends ConstraintLayout {
     }
 
     public void setNeedNavigator(boolean needNavigator) {
-        isNeedNavigator = needNavigator;
-        initNavigator();
+        if (isNeedNavigator != needNavigator){
+
+            isNeedNavigator = needNavigator;
+            initNavigator();
+            updateNavigatorLocation();
+
+        }
+
+
     }
 
     /**
      * 设置导航点的位置
      */
     public void setNavigatorParams(int leftMargin, int topMargin, int rightMargin, int bottomMargin, int location) {
+
+        this.leftMargin = leftMargin;
+        this.topMargin = topMargin;
+        this.bottomMargin = bottomMargin;
+        this.rightMargin  = rightMargin;
+        this.location = location;
+        updateNavigatorLocation();
+
+    }
+
+    private void updateNavigatorLocation(){
 
         bannerSet.clear(navigatorLay.getId());
         bannerSet.constrainWidth(navigatorLay.getId(), ConstraintSet.WRAP_CONTENT);

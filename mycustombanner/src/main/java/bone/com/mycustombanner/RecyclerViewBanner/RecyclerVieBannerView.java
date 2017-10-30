@@ -44,7 +44,7 @@ public class RecyclerVieBannerView extends ConstraintLayout {
     /**
      * 是否需要导航点
      */
-    private boolean isNeedNavigator = false;
+    private boolean isNeedNavigator = true;
     /**
      * 导航点的布局
      */
@@ -80,6 +80,14 @@ public class RecyclerVieBannerView extends ConstraintLayout {
 
 
     private LinearLayoutManager layoutManager;
+    /**
+     * 导航点的位置间距
+     */
+    private int leftMargin, topMargin, rightMargin, bottomMargin;
+    /**
+     * 导航点的位置
+     */
+    private int location;
 
     private Handler autoHandler = new Handler(Looper.getMainLooper()) {
         @Override
@@ -208,7 +216,6 @@ public class RecyclerVieBannerView extends ConstraintLayout {
         bannerSet.constrainHeight(navigatorLay.getId(), ConstraintSet.WRAP_CONTENT);
         navigatorLay.setVisibility(GONE);
 
-        addView(navigatorLay);
         initNavigator();
         //  限制完约束后设置给容器
         bannerSet.applyTo(this);
@@ -216,10 +223,15 @@ public class RecyclerVieBannerView extends ConstraintLayout {
 
     }
 
-
     public void setNeedNavigator(boolean needNavigator) {
-        isNeedNavigator = needNavigator;
-        initNavigator();
+        if (isNeedNavigator != needNavigator){
+            isNeedNavigator = needNavigator;
+            initNavigator();
+            updateNavigatorLocation();
+
+        }
+
+
     }
 
     /**
@@ -227,9 +239,9 @@ public class RecyclerVieBannerView extends ConstraintLayout {
      */
     private void initNavigator() {
         if (isNeedNavigator) {
-            navigatorLay.setVisibility(VISIBLE);
+            addView(navigatorLay);
         } else {
-            navigatorLay.setVisibility(GONE);
+            removeView(navigatorLay);
         }
 
     }
@@ -326,6 +338,17 @@ public class RecyclerVieBannerView extends ConstraintLayout {
      * 设置导航点的位置
      */
     public void setNavigatorParams(int leftMargin, int topMargin, int rightMargin, int bottomMargin, int location) {
+
+        this.leftMargin = leftMargin;
+        this.topMargin = topMargin;
+        this.bottomMargin = bottomMargin;
+        this.rightMargin  = rightMargin;
+        this.location = location;
+        updateNavigatorLocation();
+
+    }
+
+    private void updateNavigatorLocation(){
 
         bannerSet.clear(navigatorLay.getId());
         bannerSet.constrainWidth(navigatorLay.getId(), ConstraintSet.WRAP_CONTENT);

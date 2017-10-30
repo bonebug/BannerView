@@ -37,7 +37,6 @@ public class RecyclerViewBannerActivity extends AppCompatActivity {
         bannerView.getAdapter().setNewData(getData());
 
         initNavigator();
-        bannerView.setNeedNavigator(true);
 
 
         bannerView.setAutoPlay(true);
@@ -89,6 +88,7 @@ public class RecyclerViewBannerActivity extends AppCompatActivity {
      * 初始化导航点
      */
     private void initNavigator() {
+//        bannerView.setNeedNavigator(false);
         int margin = DensityUtil.dip2px(RecyclerViewBannerActivity.this, 15);
         bannerView.setNavigatorParams(0, 0, margin, margin, NavigatorLocationConstant.BOTTOM_RIGHT);
 //        bannerView.setNavigatorPointsBackgroundColors(R.color.color_green,R.color.color_write);
