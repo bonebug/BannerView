@@ -1,5 +1,5 @@
 # Android图片轮播控件
-# 由于本控件更多是从封装着角度出发，所以会存在一些易用上的问题，欢迎提出改进建议
+# 由于本控件更多是从封装者角度出发，所以会存在一些易用上的问题，欢迎提出改进建议
 
 <br>
 
@@ -14,7 +14,7 @@
 
 ## 效果图
 
-|没。。。。
+没。。。。
 
 
 ## 常量
@@ -38,7 +38,7 @@
 |RecyclerViewPagerAdatper.SLIDEIN_RIGHT
 
 
-## 方法（BannerView---viewpager）
+## 方法（BannerView---ViewPager）
 |方法名|描述
 |---|---|
 |setNeedNavigator |  设置是否需要导航点
