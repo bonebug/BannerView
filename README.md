@@ -41,7 +41,7 @@
 ## 方法（BannerView---ViewPager）
 |方法名|描述
 |---|---|
-|setNeedNavigator |  设置是否需要导航点
+|setNeedNavigator() |  设置是否需要导航点
 |addItemType() | 添加item布局类型
 |getAdapter() | 获取banner的adapter
 |isAutoPlay() | 获取当前banner是否在自动轮播
@@ -60,7 +60,7 @@
 ## 方法（BannerView---RecyclerView + SnapHelper）
 |方法名|描述
 |---|---|
-|setNeedNavigator |  设置是否需要导航点
+|setNeedNavigator() |  设置是否需要导航点
 |addItemType() | 添加item布局类型
 |getAdapter() | 获取banner的adapter
 |isAutoPlay() | 获取当前banner是否在自动轮播
