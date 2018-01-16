@@ -1,8 +1,8 @@
 package com.test.banner.ui;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
@@ -20,14 +20,14 @@ import bone.com.mycustombanner.navigatorview.NavigatorLocationConstant;
 import bone.com.mycustombanner.transformer.ForegroundToBackgroundTransformer;
 import bone.com.mycustombanner.utils.DensityUtil;
 
-public class ViewPagerBannerActivity extends AppCompatActivity {
+public class ViewPagerBannerActivity extends Activity {
 
     private BannerView bannerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle(R.string.string_title_viewpagerbanner);
+
         setContentView(R.layout.activity_self_banner_show);
         bannerView = findViewById(R.id.bv);
         //默认item类型
