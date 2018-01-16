@@ -13,7 +13,7 @@ import com.chad.library.adapter.base.entity.BaseSectionInterface;
 
 import java.util.List;
 
-import gome.com.commonutilslibs.LogUtils;
+import bone.com.commonutilslibs.LogUtils;
 
 
 /**
@@ -92,7 +92,7 @@ public class SectionItemDecoration extends RecyclerView.ItemDecoration {
         if (willNewGroup){
             yOffset = itemView.getBottom();
         }
-        LogUtils.gome().e("position:"+firstVisibleItemPosition+" yOffset:"+yOffset + " name:"+ getData(parent).get(firstVisibleItemPosition).getGroupShowName());
+        LogUtils.bone().e("position:"+firstVisibleItemPosition+" yOffset:"+yOffset + " name:"+ getData(parent).get(firstVisibleItemPosition).getGroupShowName());
         Paint.FontMetricsInt fontMetrics = textPaint.getFontMetricsInt();
         int baseline = yOffset - (itemHeight / 2 - (fontMetrics.descent - fontMetrics.ascent) / 2 + fontMetrics.descent);
         c.drawRect(parent.getPaddingLeft(),  0, parent.getRight(), yOffset, stickerViewPaint);
