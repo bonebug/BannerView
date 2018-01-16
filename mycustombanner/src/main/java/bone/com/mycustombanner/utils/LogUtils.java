@@ -15,7 +15,7 @@ public class LogUtils
 
     private static LogUtils klog;
 
-    private static final String ZLog = "GOME-LIBS";
+    private static final String ZLog = "bone-LIBS";
 
     private LogUtils(String name)
     {
